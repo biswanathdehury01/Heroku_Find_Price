@@ -1,43 +1,172 @@
-"""
-Product Recommendation System
-
-@Eclature
-"""
-
 <!DOCTYPE html>
-<html >
+<html>
 <!--From https://codepen.io/frytyler/pen/EGdtg-->
+
 <head>
   <meta charset="UTF-8">
   <title>ML API</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid #fff !important;
+      border-collapse: collapse;
+    }
+  </style>
+
 </head>
 
-<body>
- <div class="login">
-	<h1>mobile prices</h1>
+<body style="background-color: #2874A6;">
+  <div class="login">
+    <div class="">
+      <span><img style="width: 200px; margin-left: 20px;"
+          src="https://eclature.com/wp-content/uploads/2018/08/e-logo.png" /> </span>
+      <span style="text-align: center; margin-left: 330px; color: #fff;">"""
+        Product Recommendation System
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="productid" placeholder="productid" required="required" />
-        <input type="text" name="brand" placeholder="brand" required="required" />
-		<input type="text" name="product rating" placeholder="product rating " required="required" />
-        <input type="text" name="totalReviews" placeholder="totalReviews" required="required" />
-        <input type="text" name="user ratings" placeholder="user ratings" required="required" />
-        
-    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        @Eclature
+        """</span>
+    </div>
+    <h1 style="text-align: center; color: #fff; margin-top: 70px;">mobile prices</h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" style="text-align: center;">
+      <input type="text" name="productid" placeholder="productid" required="required" style="padding: 10px;
+      border-radius: 5px;
+      border-color: transparent;" />
+      <input type="text" name="brand" placeholder="brand" required="required" style="padding: 10px;
+        border-radius: 5px;
+        border-color: transparent;" />
+      <input type="text" name="product rating" placeholder="product rating " required="required" style="padding: 10px;
+    border-radius: 5px;
+    border-color: transparent;" />
+      <input type="text" name="totalReviews" placeholder="totalReviews" required="required" style="padding: 10px;
+        border-radius: 5px;
+        border-color: transparent;" />
+      <input type="text" name="user ratings" placeholder="user ratings" required="required" style="padding: 10px;
+        border-radius: 5px;
+        border-color: transparent;" />
+      <div style="text-align: center; margin-top: 40px;">
+        <button type="submit" class="btn btn-primary btn-block btn-large" style="padding: 10px;
+    border-radius: 5px;
+    border-color: transparent; width: 180px;">Search</button>
+      </div>
     </form>
 
-   <br>
-   <br>
-   {{ prediction_text }}
 
- </div>
+    <br>
+    <br>
+    <p style="text-align: center; color: #fff; margin-top: 20px;">{{ prediction_text }}</p>
+
+
+    <div style="text-align: center; width: 100%;">
+      <table style="width:20%; color:#fff; border-color: #fff; text-align: center;">
+        <tr>
+          <th>Features</th>
+          <th>Range</th>
+        </tr>
+        <tr>
+          <td>Product ID</td>
+          <td>1-720</td>
+
+        </tr>
+        <tr>
+          <td>Brand</td>
+          <td>1-10</td>
+        </tr>
+        <tr>
+          <td>Product Rating</td>
+          <td>1-5</td>
+        </tr>
+        <tr>
+          <td>Total Reviews</td>
+          <td>0-5000</td>
+        </tr>
+
+        <tr>
+          <td>User Ratings</td>
+          <td>1-5</td>
+        </tr>
+
+      </table>
+    </div>
+	
+	
+	
+ <div style="text-align: center; width: 100%; margin-top:30px">
+      <table style="width:20%; color:#fff; border-color: #fff; text-align: center;">
+  <tr>
+    <th>Range </th>
+    <th>Brand</th> 
+  </tr>
+  
+  <tr>
+    <td>1</td>
+    <td>ASUS</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>APPLE</td>
+  </tr>
+   <tr>
+    <td>3</td>
+    <td>GOOGLE</td>
+  </tr>
+  
+  <tr>
+    <td>4</td>
+    <td>HUAWEI</td>
+  </tr>
+  
+   <tr>
+    <td>5</td>
+    <td>MOTOROLA</td>
+  </tr>
+   <tr>
+    <td>6</td>
+    <td>NOKIA</td>
+  </tr>
+  
+   <tr>
+    <td>7</td>
+    <td>ONE PLUS</td>
+  </tr>
+   <tr>
+    <td>8</td>
+    <td>SAMSUNG</td>
+  </tr>
+   <tr>
+    <td>9</td>
+    <td>SONY</td>
+  </tr>
+  
+   <tr>
+    <td>10</td>
+    <td>XIAOMI</td>
+  </tr>
+  
+  
+</table>
+
+	
+	
+
+
+
+</div>
+
+
+
+
+
+  </div>
 
 
 </body>
+
 </html>

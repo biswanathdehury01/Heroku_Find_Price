@@ -1,27 +1,19 @@
+# -*- coding: utf-8 -*-
 """
-Product Recommendation System
+Created on Thu Jul 23 16:17:53 2020
 
-@Eclature
-
+@author: Rakesh
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
-from sklearn.impute import SimpleImputer, MissingIndicator
-from sklearn.preprocessing import LabelEncoder
-import seaborn as sns
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn import metrics
 
-mobiles = pd.read_csv('mobile-reviews & iteam Merged.csv')
+mobiles = pd.read_csv('C:/Users/Rakesh/Downloads/Recommendation-Engine-master1/Recommendation-Engine-master/procedural programming/mobile-reviews & iteam Merged.csv')
 mobiles.head(5)
 
 #Pre-Pocessing
-
 price = mobiles[['price']]
 price
 
@@ -62,30 +54,34 @@ X
 
 y = mobiles.iloc[:, -1]
 
-# scaler = MinMaxScaler()
-# X = scaler.fit_transform(X)
-x_train, x_test, y_train, y_test = train_test_split(X, y, test_size = 0.3)
 
-
-model = LinearRegression()
-model.fit(x_train, y_train)
-
-print(model.coef_)
-print(model.intercept_)
-
-predictions = model.predict(x_test)
-
-plt.hist(y_test - predictions)
-
-print(metrics.mean_absolute_error(y_test, predictions))
-print(metrics.mean_squared_error(y_test, predictions))
-print(np.sqrt(metrics.mean_squared_error(y_test, predictions)))
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+#Fitting model with trainig data
+regressor.fit(X, y)
 
 # Saving model to disk
-pickle.dump(model, open('model.pkl','wb'))
+pickle.dump(regressor, open('model.pkl','wb'))
 
 # Loading model to compare the results
 model = pickle.load(open('model.pkl','rb'))
 
 
 print(model.predict([[16, 8, 3.2, 107,4]]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 """
-Product Recommendation System
+Created on Thu Jul 23 16:01:52 2020
 
-@Eclature
+@author: Rakesh
 """
 
 import numpy as np
+
 from flask import Flask, request, jsonify, render_template
 import pickle
 
